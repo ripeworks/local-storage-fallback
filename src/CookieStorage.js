@@ -19,9 +19,13 @@ export default class CookieStorage {
 }
 
 export function hasCookies() {
-  const TEST_KEY = '__test'
-  cookie(TEST_KEY, '1')
-  const value = cookie(TEST_KEY)
+  try {
+    const TEST_KEY = '__test'
+    cookie(TEST_KEY, '1')
+    const value = cookie(TEST_KEY)
 
-  return value == '1'
+    return value == '1'
+  } catch (e) {
+    return false
+  }
 }
