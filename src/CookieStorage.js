@@ -17,3 +17,11 @@ export default class CookieStorage {
     return false
   }
 }
+
+export function hasCookies() {
+  const TEST_KEY = '__test'
+  cookie(TEST_KEY, '1')
+  const value = cookie(TEST_KEY)
+
+  return value == '1'
+}
