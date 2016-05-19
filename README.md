@@ -12,7 +12,7 @@ $ npm install superdevpack
 ## Usage
 
 ```js
-import storage from 'local-storage-falllback'
+import storage from 'local-storage-fallback'
 
 // Use storage directly
 storage.setItem('foo', 'bar');
@@ -21,3 +21,12 @@ storage.getItem('foo'); // bar
 // Or shim window.localStorage
 window.localStorage = storage;
 ```
+
+## Purpose
+
+With browser settings like "Private Browsing" it has become a problem to rely on a working `window.localStorage`, even in newer browsers. Even though it may exist, it will throw exceptions when trying to use `setItem` or `getItem`. This module will run appropriate checks to see what browser storage mechanism might be available, and then expose it. It uses the same API as `localStorage` so it should work as a drop-in replacement in most cases.
+
+## Gotchas
+
+* `CookieStorage` __has__ storage limits. Be careful here.
+* `MemoryStorage` will __not__ persist between page loads. This is more or less a stop-gap to prevent page crashes, but may be sufficient for websites that don't do full page loads.
