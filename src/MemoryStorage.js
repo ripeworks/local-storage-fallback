@@ -1,5 +1,7 @@
 export default class MemoryStorage {
-  _data = {};
+  constructor() {
+    this._data = {}
+  }
 
   getItem(key) {
     return this._data.hasOwnProperty(key) ? this._data[key] : undefined
