@@ -6,7 +6,7 @@ Check and use appropriate storage adapter for browser (localStorage, sessionStor
 ## Installation
 
 ```
-$ npm install superdevpack
+$ npm install local-storage-fallback
 ```
 
 ## Usage
