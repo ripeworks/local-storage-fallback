@@ -19,7 +19,9 @@ storage.setItem('foo', 'bar');
 storage.getItem('foo'); // bar
 
 // Or shim window.localStorage
-window.localStorage = storage;
+if (!('localStorage' in window)) {
+  window.localStorage = storage;
+}
 ```
 
 ## Purpose
