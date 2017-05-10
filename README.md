@@ -24,9 +24,14 @@ if (!('localStorage' in window)) {
 }
 ```
 
-## Browser Build
+## Browser Bundle
 
-https://unpkg.com/local-storage-fallback/lib/dist.min.js
+```html
+<script src="https://unpkg.com/local-storage-fallback/lib/dist.min.js"></script>
+<script>
+  window.localStorageFallback.setItem('foo', 'bar')
+</script>
+```
 
 ## Purpose
 
