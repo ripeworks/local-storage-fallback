@@ -24,6 +24,10 @@ if (!('localStorage' in window)) {
 }
 ```
 
+## Browser Build
+
+https://unpkg.com/local-storage-fallback/lib/dist.min.js
+
 ## Purpose
 
 With browser settings like "Private Browsing" it has become a problem to rely on a working `window.localStorage`, even in newer browsers. Even though it may exist, it will throw exceptions when trying to use `setItem` or `getItem`. This module will run appropriate checks to see what browser storage mechanism might be available, and then expose it. It uses the same API as `localStorage` so it should work as a drop-in replacement in most cases.
