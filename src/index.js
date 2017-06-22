@@ -18,4 +18,4 @@ if (hasStorage('localStorage')) {
   storage = new MemoryStorage()
 }
 
-export default storage
+module.exports = storage

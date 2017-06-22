@@ -1,6 +1,6 @@
 require('./helpers/setup-browser-env')
 const test = require('ava')
-const storage = require('../lib').default
+const storage = require('../lib')
 
 test('uses cookie storage', t => {
   t.is(storage.constructor.name, 'CookieStorage')
