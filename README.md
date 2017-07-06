@@ -12,24 +12,22 @@ $ npm install local-storage-fallback
 ## Usage
 
 ```js
-import storage from 'local-storage-fallback'
+import Storage from 'local-storage-fallback'
+let storage = Storage(options);
 
 // Use storage directly
 storage.setItem('foo', 'bar');
 storage.getItem('foo'); // bar
 
-// Or shim window.localStorage
-if (!('localStorage' in window)) {
-  window.localStorage = storage;
-}
 ```
 
 ## Browser Bundle
 
 ```html
-<script src="https://unpkg.com/local-storage-fallback/lib/dist.min.js"></script>
+<script src="lib/dist.min.js"></script>
 <script>
-  window.localStorageFallback.setItem('foo', 'bar')
+  var storage = window.localStorageFallback(options);
+  storage.setItem('foo', 'bar')
 </script>
 ```
 

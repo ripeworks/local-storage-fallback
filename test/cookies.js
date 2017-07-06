@@ -1,24 +1,25 @@
 require('./helpers/setup-browser-env')
 const test = require('ava')
-const storage = require('../lib')
+const storage = require('../lib')({cookiePrefix: '_LSPOLY-', primaryFallback: 'cookie'})
 
 test('uses cookie storage', t => {
   t.is(storage.constructor.name, 'CookieStorage')
 })
 
 test('get/set with cookie storage', t => {
-  storage.setItem('test', 1)
-  t.is(storage.getItem('test'), '1')
+  storage.setItem('gstest', 1)
+  t.is(storage.getItem('gstest'), '1')
+  t.is(document.cookie.indexOf('_LSPOLY-'), 0)
 })
 
 test('remove with cookie storage', t => {
-  storage.setItem('test', 2)
-  storage.removeItem('test')
-  t.is(storage.getItem('test'), null)
+  storage.setItem('rtest', 2)
+  storage.removeItem('rtest')
+  t.is(storage.getItem('rtest'), null)
 })
 
 test('clear with cookie storage', t => {
-  storage.setItem('test', 2)
+  storage.setItem('ctest', 3)
   storage.clear()
-  t.is(storage.getItem('test'), null)
+  t.is(storage.getItem('ctest'), null)
 })

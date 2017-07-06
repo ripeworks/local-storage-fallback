@@ -9,7 +9,7 @@
   "scripts": {
     "test": "ava",
     "build:node": "babel --presets es2015 src --out-dir lib",
-    "build:browser": "webpack lib lib/dist.min.js -p --output-library=localStorageFallback --output-library-target=umd",
+    "build:browser": "webpack lib lib/dist.js --output-library=localStorageFallback --output-library-target=umd && webpack lib lib/dist.min.js -p --output-library=localStorageFallback --output-library-target=umd",
     "prepublish": "mkdir -p lib && npm run build:node && npm run build:browser"
   },
   "repository": {
@@ -27,6 +27,11 @@
   "homepage": "https://github.com/ripeworks/local-storage-fallback#readme",
   "dependencies": {
     "cookie": "^0.3.1"
+  },
+  "babel": {
+    "presets": [
+      "es2015"
+    ]
   },
   "devDependencies": {
     "ava": "^0.15.2",
