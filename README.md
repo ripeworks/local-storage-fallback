@@ -34,7 +34,7 @@ storage.getItem('foo'); // bar
 ## Options
 - **cookiePrefix** (String, defuault='lS_') Defines the cookie prefix to apply when CookieStorage is used.  Any string is valid.
 - **cookieExpires** (Date, default=none) Sets the default cookie expires value when CookieStorage is used.  The only valid value is a JS Date object.
-- **primaryFallback** (String, default='session') Sets the 1st order fallback mechanism.  Valid values are either 'cookie' or 'session'.
+- **primaryFallback** (String, default='session') Sets the 1st order fallback mechanism.  Valid values are either 'cookie', 'memory, or 'session'.
 
 ## Purpose
 
