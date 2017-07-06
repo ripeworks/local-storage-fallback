@@ -1,6 +1,6 @@
 {
   "name": "local-storage-fallback",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Check and use appropriate storage adapter for browser (localStorage, sessionStorage, cookies, memory)",
   "main": "lib/index.js",
   "files": [
@@ -14,7 +14,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/ripeworks/local-storage-fallback.git"
+    "url": "git+https://github.com/joelabair/local-storage-fallback.git"
   },
   "keywords": [
     "localStorage"
@@ -22,9 +22,9 @@
   "author": "Mike Kruk <mike@ripeworks.com> (http://ripeworks.com)",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/ripeworks/local-storage-fallback/issues"
+    "url": "https://github.com/joelabair/local-storage-fallback/issues"
   },
-  "homepage": "https://github.com/ripeworks/local-storage-fallback#readme",
+  "homepage": "https://github.com/joelabair/local-storage-fallback#readme",
   "dependencies": {
     "cookie": "^0.3.1"
   },
