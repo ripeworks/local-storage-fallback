@@ -1,8 +1,15 @@
 import cookie from 'cookie'
 
-const prefix = 'lS_'
+let prefix = 'lS_'
+let expires = null
 
 export default class CookieStorage {
+  constructor(options) {
+	options = options || {}
+	prefix = options.prefix || prefix
+	expires = options.expires || expires
+  }
+
   getItem(key) {
     const cookies = cookie.parse(document.cookie)
     if(!cookies || !cookies.hasOwnProperty(prefix + key)) {
@@ -13,7 +20,8 @@ export default class CookieStorage {
 
   setItem(key, value) {
     document.cookie = cookie.serialize(prefix + key, value, {
-      path: '/'
+      path: '/',
+	  expires: expires
     })
     return value
   }

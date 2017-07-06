@@ -12,26 +12,29 @@ $ npm install local-storage-fallback
 ## Usage
 
 ```js
-import storage from 'local-storage-fallback'
+import Storage from 'local-storage-fallback'
+let storage = Storage(options);
 
 // Use storage directly
 storage.setItem('foo', 'bar');
 storage.getItem('foo'); // bar
 
-// Or shim window.localStorage
-if (!('localStorage' in window)) {
-  window.localStorage = storage;
-}
 ```
 
 ## Browser Bundle
 
 ```html
-<script src="https://unpkg.com/local-storage-fallback/lib/dist.min.js"></script>
+<script src="lib/dist.min.js"></script>
 <script>
-  window.localStorageFallback.setItem('foo', 'bar')
+  var storage = window.localStorageFallback(options);
+  storage.setItem('foo', 'bar')
 </script>
 ```
+
+## Options
+- **cookiePrefix** (String, defuault='lS_') Defines the cookie prefix to apply when CookieStorage is used.  Any string is valid.
+- **cookieExpires** (Date, default=none) Sets the default cookie expires value when CookieStorage is used.  The only valid value is a JS Date object.
+- **primaryFallback** (String, default='session') Sets the 1st order fallback mechanism.  Valid values are either 'cookie', 'memory, or 'session'.
 
 ## Purpose
 

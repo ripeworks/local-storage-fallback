@@ -2,7 +2,7 @@ require('./helpers/setup-browser-env')
 require('./helpers/setup-local-storage')
 
 const test = require('ava')
-const storage = require('../lib')
+const storage = require('../lib')()
 
 test('uses local storage', t => {
   t.is(storage.constructor.name, 'Object')
