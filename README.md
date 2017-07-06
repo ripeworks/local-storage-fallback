@@ -31,6 +31,11 @@ storage.getItem('foo'); // bar
 </script>
 ```
 
+## Options
+- **cookiePrefix** (String, defuault='lS_') Defines the cookie prefix to apply when CookieStorage is used.  Any string is valid.
+- **cookieExpires** (Date, default=none) Sets the default cookie expires value when CookieStorage is used.  The only valid value is a JS Date object.
+- **primaryFallback** (String, default='session') Sets the 1st order fallback mechanism.  Valid values are either 'cookie' or 'session'.
+
 ## Purpose
 
 With browser settings like "Private Browsing" it has become a problem to rely on a working `window.localStorage`, even in newer browsers. Even though it may exist, it will throw exceptions when trying to use `setItem` or `getItem`. This module will run appropriate checks to see what browser storage mechanism might be available, and then expose it. It uses the same API as `localStorage` so it should work as a drop-in replacement in most cases.
