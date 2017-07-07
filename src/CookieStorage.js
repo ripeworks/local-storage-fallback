@@ -1,35 +1,36 @@
 import cookie from 'cookie'
 
-const prefix = 'lS_'
+let prefix = 'lS_'
 
 export default class CookieStorage {
-  getItem(key) {
+  constructor (options = {}) {
+    this.cookieOptions = Object.assign({}, options, {path: '/'})
+    prefix = options.prefix || prefix
+  }
+
+  getItem (key) {
     const cookies = cookie.parse(document.cookie)
-    if(!cookies || !cookies.hasOwnProperty(prefix + key)) {
+    if (!cookies || !cookies.hasOwnProperty(prefix + key)) {
       return null
     }
     return cookies[prefix + key]
   }
 
-  setItem(key, value) {
-    document.cookie = cookie.serialize(prefix + key, value, {
-      path: '/'
-    })
+  setItem (key, value) {
+    document.cookie = cookie.serialize(prefix + key, value, this.cookieOptions)
     return value
   }
 
-  removeItem(key) {
-    document.cookie = cookie.serialize(prefix + key, '', {
-      path: '/',
-      maxAge: -1
-    });
+  removeItem (key) {
+    const options = Object.assign({}, this.cookieOptions, {maxAge: -1})
+    document.cookie = cookie.serialize(prefix + key, '', options)
     return null
   }
 
-  clear() {
+  clear () {
     const cookies = cookie.parse(document.cookie)
-    for(var key in cookies) {
-      if(key.indexOf(prefix) === 0) {
+    for (const key in cookies) {
+      if (key.indexOf(prefix) === 0) {
         this.removeItem(key.substr(prefix.length))
       }
     }
@@ -38,16 +39,16 @@ export default class CookieStorage {
   }
 }
 
-export function hasCookies() {
-  const {setItem, getItem, removeItem} = CookieStorage.prototype
+export function hasCookies () {
+  const storage = new CookieStorage()
 
   try {
     const TEST_KEY = '__test'
-    setItem(TEST_KEY, '1')
-    const value = getItem(TEST_KEY)
-    removeItem(TEST_KEY)
+    storage.setItem(TEST_KEY, '1')
+    const value = storage.getItem(TEST_KEY)
+    storage.removeItem(TEST_KEY)
 
-    return value == '1'
+    return value === '1'
   } catch (e) {
     return false
   }

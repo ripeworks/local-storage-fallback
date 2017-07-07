@@ -1,21 +1,21 @@
 export default class MemoryStorage {
-  constructor() {
+  constructor () {
     this._data = {}
   }
 
-  getItem(key) {
+  getItem (key) {
     return this._data.hasOwnProperty(key) ? this._data[key] : undefined
   }
 
-  setItem(key, value) {
+  setItem (key, value) {
     return this._data[key] = String(value)
   }
 
-  removeItem(key) {
+  removeItem (key) {
     return delete this._data[key]
   }
 
-  clear() {
+  clear () {
     return this._data = {}
   }
 }

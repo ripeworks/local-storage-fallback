@@ -22,3 +22,18 @@ test('clear with cookie storage', t => {
   storage.clear()
   t.is(storage.getItem('test'), null)
 })
+
+test('specify cookie options', t => {
+  // set expiry in 1 hour
+  const expires = new Date()
+  expires.setHours(expires.getHours() + 1)
+
+  const cookieStorage = new storage.CookieStorage({
+    prefix: 'customPrefix',
+    expires
+  })
+
+  cookieStorage.setItem('test', 1)
+
+  t.is(document.cookie.indexOf('customPrefix'), 0)
+})

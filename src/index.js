@@ -1,16 +1,16 @@
-import hasStorage from './hasStorage'
-import CookieStorage, { hasCookies } from './CookieStorage'
+import isSupported from './isSupported'
+import CookieStorage from './CookieStorage'
 import MemoryStorage from './MemoryStorage'
 
 let storage = null
 
-if (hasStorage('localStorage')) {
+if (isSupported('localStorage')) {
   // use localStorage
   storage = window.localStorage
-} else if(hasStorage('sessionStorage')) {
+} else if (isSupported('sessionStorage')) {
   // use sessionStorage
   storage = window.sessionStorage
-} else if(hasCookies()) {
+} else if (isSupported('cookieStorage')) {
   // use cookies
   storage = new CookieStorage()
 } else {
@@ -19,3 +19,6 @@ if (hasStorage('localStorage')) {
 }
 
 module.exports = storage
+module.exports.isSupported = isSupported
+module.exports.CookieStorage = CookieStorage
+module.exports.MemoryStorage = MemoryStorage
