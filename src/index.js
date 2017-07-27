@@ -18,7 +18,5 @@ if (isSupported('localStorage')) {
   storage = new MemoryStorage()
 }
 
-module.exports = storage
-module.exports.isSupported = isSupported
-module.exports.CookieStorage = CookieStorage
-module.exports.MemoryStorage = MemoryStorage
+export default storage
+export { storage, isSupported, CookieStorage, MemoryStorage }

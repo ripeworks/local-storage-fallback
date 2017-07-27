@@ -1,6 +1,6 @@
 require('./helpers/setup-browser-env')
 const test = require('ava')
-const storage = require('../lib')
+const { storage, CookieStorage } = require('../lib')
 
 test('uses cookie storage', t => {
   t.is(storage.constructor.name, 'CookieStorage')
@@ -28,7 +28,7 @@ test('specify cookie options', t => {
   const expires = new Date()
   expires.setHours(expires.getHours() + 1)
 
-  const cookieStorage = new storage.CookieStorage({
+  const cookieStorage = new CookieStorage({
     prefix: 'customPrefix',
     expires
   })

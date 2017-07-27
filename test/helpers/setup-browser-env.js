@@ -1,3 +1,3 @@
-global.document = require('jsdom').jsdom('<body></body>');
-global.window = document.defaultView;
-global.navigator = window.navigator;
+const { JSDOM } = require('jsdom');
+global.window = (new JSDOM()).window;
+global.document = window.document;
