@@ -13,6 +13,8 @@ $ npm install local-storage-fallback
 
 ```js
 import storage from 'local-storage-fallback'
+// use object destructuring when using require()
+// const {storage} = require('local-storage-fallback')
 
 // Use storage directly
 storage.setItem('foo', 'bar');
