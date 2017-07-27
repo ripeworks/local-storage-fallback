@@ -1,6 +1,6 @@
 {
   "name": "local-storage-fallback",
-  "version": "3.0.0",
+  "version": "4.0.0",
   "description": "Check and use appropriate storage adapter for browser (localStorage, sessionStorage, cookies, memory)",
   "main": "lib/index.js",
   "files": [
