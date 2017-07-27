@@ -1,5 +1,5 @@
 const test = require('ava')
-const storage = require('../lib')
+const { storage } = require('../lib')
 
 test('works in node env', t => {
   t.is(storage.constructor.name, 'MemoryStorage')
