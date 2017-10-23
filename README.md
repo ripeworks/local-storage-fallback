@@ -12,7 +12,7 @@ $ npm install local-storage-fallback
 ## Usage
 
 ```js
-import storage from 'local-storage-fallback'
+import storage from 'local-storage-fallback' // if you use es6 or typescript
 // use object destructuring when using require()
 // const {storage} = require('local-storage-fallback')
 
