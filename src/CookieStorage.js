@@ -5,7 +5,7 @@ let prefix = 'lS_'
 export default class CookieStorage {
   constructor (options = {}) {
     this.cookieOptions = Object.assign({path: '/'}, options)
-    prefix = options.prefix || prefix
+    prefix = options.prefix === undefined ? prefix : options.prefix
   }
 
   getItem (key) {
