@@ -37,3 +37,15 @@ test('specify cookie options', t => {
 
   t.is(document.cookie.indexOf('customPrefix'), 0)
 })
+
+test('specify cookie prefix option', t => {
+  storage.clear()
+
+  const cookieStorage = new CookieStorage({
+    prefix: ''
+  })
+
+  cookieStorage.setItem('test', 1)
+
+  t.is(document.cookie.indexOf('test'), 0)
+})
