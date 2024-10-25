@@ -28,7 +28,7 @@
   },
   "homepage": "https://github.com/ripeworks/local-storage-fallback#readme",
   "dependencies": {
-    "cookie": "^0.3.1"
+    "cookie": "^0.7.2"
   },
   "devDependencies": {
     "ava": "^0.21.0",
