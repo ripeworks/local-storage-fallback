@@ -1,7 +1,15 @@
+const path = require("path");
+
 module.exports = {
+  mode: "production",
+  entry: "./lib",
   output: {
-    library: 'localStorageFallback',
-    libraryTarget: 'umd',
-    libraryExport: 'default',
+    path: path.resolve(__dirname, "lib"),
+    filename: "dist.min.js",
+    library: {
+      name: "localStorageFallback",
+      type: "umd",
+      export: "default",
+    },
   },
-}
+};
